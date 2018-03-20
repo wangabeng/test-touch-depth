@@ -154,6 +154,7 @@
 .index-nav-list ul li p:last-child {
   font-size: .18rem;
   padding-bottom: .22rem;
+  height: .52rem;
 }
 
 .index-nav-list ul li.agency-application {

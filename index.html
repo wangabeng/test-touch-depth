@@ -18,8 +18,6 @@
     <script>
         $(function () {
             // 主页新闻标题自动滚动动画
-            // $('.news-list-content').slideUp();
-            // 主页新闻标题自动滚动动画
             // 整个ul向上移动 移动到最高位置的时候 瞬间让ul下移至原始位置 即可 然后继续向上移动
             // 2个参数 一个是元素class名 一个是元素高度0.3rem 单位是rem
             var moveElement = $('.news-list-content'); // ul元素
@@ -33,19 +31,29 @@
             // 每800ms向上移动2格高度
 
             clearInterval(moveTimer);
-            var moveTimer = setInterval(function () {
+            var moveTimer = setInterval(intervalFn, 1600);
+
+            window.addEventListener('resize', function () {
+                clearInterval(moveTimer);
+                moveTimer = setInterval(intervalFn, 1600);
+            });
+
+            function intervalFn () {
                 // 获取当前的top值
                 curTop = parseInt(moveElement.css('top'));
+                // console.log('curTop', curTop, 'n/2-2个高度', parseInt(- eachHeight * (allLength - 2)));
                 if (curTop == parseInt(- eachHeight * (allLength - 2))) {
-                    console.log('curTop', curTop);
+                    // console.log('curTop', curTop);
                     var pullAtOnce = parseInt(- eachHeight * (allLength / 2 - 2));
-                    moveElement.css('top', pullAtOnce);
+                    // console.log('pullAtOnce', pullAtOnce);
+                    // moveElement.css('top', -52.734375);
+                    moveElement.css('top', pullAtOnce );
                     curTop = parseInt(moveElement.css('top'));
                 }
-                console.log(curTop, - eachHeight * (allLength - 2));
-                moveElement.animate({'top': curTop - eachHeight * 2}, 600);
-            }, 1200);
-            
+                // console.log(curTop, - eachHeight * (allLength - 2));
+                moveElement.animate({'top': curTop - eachHeight * 2}, 800);    
+            }
+
         });
     </script>
 </head>
@@ -159,14 +167,6 @@
                             <i class='fa fa-commenting left-msg-icon'></i>
                             <span class='news-dot'>：</span>
                             <span class='news-title-list'>2018年10月20日快递放假4 </span>
-                            <i class='fa fa-caret-right right-detail-icon'></i>
-                        </a>
-                    </li>
-                    <li class='top-news'>
-                        <a href="#">
-                            <i class='fa fa-commenting left-msg-icon'></i>
-                            <span class='news-dot'>：</span>
-                            <span class='news-title-list'>2018年10月20日快递放假5 </span>
                             <i class='fa fa-caret-right right-detail-icon'></i>
                         </a>
                     </li>
