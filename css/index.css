@@ -1,0 +1,228 @@
+﻿
+
+/*index主页样式开始*/
+.m-index {
+  padding-top: .87rem;
+  padding-bottom: 1.2rem;
+}
+/* 主页广告图 */
+.m-index .adv-pic img {
+  width: 6.4rem;
+  height: 2.6rem;
+}
+/* 主页促销列表 */
+
+.product-class ul {
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0 .14rem;
+  margin-top: .08rem;
+}
+.product-class ul li {
+  float: left;
+  width: .96rem;
+  text-align: center;
+  padding: 0.12rem .27rem;
+}
+.product-class ul li p:first-child {
+  color: #fff;
+  line-height: .96rem;
+  height: .96rem;
+  border-radius: .96rem;
+  background-image: url('../imgs/love-bag.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  font-size: .2rem;
+
+}
+.product-class ul li p:last-child {
+  padding-top: .07rem;
+  font-size: .25rem;
+}
+/* 新闻标题轮播 */
+.news-broadcast {
+  overflow: hidden;
+  padding-top: .1rem;
+  margin-top: .3rem;
+  margin-bottom: .08rem;
+  border-top: 1px solid #f0f0f0;
+}
+.news-broadcast .news-title {
+  float: left;
+  background: -webkit-linear-gradient(left, #f9bcdd , #fe93af);
+  width: .9rem;
+  height: .48rem;
+  position: relative;
+  margin-top: .07rem;
+}
+.news-broadcast .news-title:after {
+  content: '';
+  font-size: 0;
+  display: block;
+  width: 0;
+  height: 0;
+  border: .24rem solid transparent;
+  border-right: .24rem solid #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.news-broadcast .news-title h3 {
+  height: .4rem;
+  line-height: .40rem;
+  color: #fff;
+  font-weight: normal;
+  font-size: .2rem;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  padding-left: .03rem;
+  margin-top: .03rem;
+}
+
+.news-list-wrapper {
+  float: right;
+  height: .6rem;
+  overflow: hidden;
+}
+
+.news-broadcast ul li {
+  width: 5.36rem;
+  height: .3rem;
+  line-height: .3rem;
+  overflow: hidden;
+  font-size: .2rem;
+}
+.news-broadcast ul li .left-msg-icon {
+  color: red;
+  transform: scale(-1, 1);
+  float: left;
+  color: #ff8eaa;
+  height: .3rem;
+  line-height: .3rem;
+}
+.news-broadcast ul li .news-dot {
+  float: left;
+  color: #ff8eaa;
+  height: .3rem;
+  line-height: .3rem;
+}
+.news-broadcast ul li .news-title-list {
+  padding-left: .08rem;
+  float: left;
+  height: .3rem;
+  line-height: .3rem;
+}
+.news-broadcast ul li .right-detail-icon {
+  float: right;
+  margin-right: .2rem;
+  color: #909090;
+  height: .3rem;
+  line-height: .3rem;
+}
+
+/* 导航列表 代理申请 订单中心 等*/
+.index-nav-list ul {
+  overflow: hidden;
+  padding-bottom: .08rem;
+}
+.index-nav-list ul li {
+  float: left;
+  background: -webkit-linear-gradient(left, #f9bcdd , #fe93af);
+  border-radius: .08rem;
+  text-align: center;
+  margin-left: .07rem;
+  margin-top: .07rem;
+  box-shadow: 0 0.04rem 0.1rem #d9d9d9;
+}
+.index-nav-list ul li img {
+  width: .8rem;
+  height: .7rem;
+  display: block;
+  margin: 0 auto;
+  padding-top: .34rem;
+}
+.index-nav-list ul li p {
+  color: #fff;
+  font-size: 0.25rem;
+  padding: .08rem 0;
+}
+.index-nav-list ul li p:last-child {
+  font-size: .18rem;
+  padding-bottom: .22rem;
+}
+
+.index-nav-list ul li.agency-application {
+  width: 3.73rem;
+} 
+.index-nav-list ul li.order-center {
+  width: 2.48rem;
+} 
+.index-nav-list ul li.agency-query {
+  width: 2.04rem;
+} 
+.index-nav-list ul li.product-order {
+  width: 2.04rem;
+} 
+.index-nav-list ul li.material-center {
+  width: 2.04rem;
+} 
+.index-nav-list ul li.activity-center {
+  width: 2.49rem;
+} 
+.index-nav-list ul li.personal-center {
+  width: 3.72rem;
+} 
+
+/*index主页样式结束
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.test {
+  width: 6.4rem;
+  background: gray;
+  overflow: hidden;
+}
+.test1 {
+  width: 2rem;
+  height: 1rem;
+  box-sizing: border-box;
+  padding: .2rem;
+  float: left;
+  background: blue;
+  margin-left: .2rem;
+  margin-top: .2rem;
+}
+.test2 {
+  width: 4rem;
+  height: 1rem;
+  box-sizing: border-box;
+  padding: .2rem;
+  float: left;
+  background: red;
+  margin-left: .1rem;
+  margin-top: .2rem;
+}
+.test3 {
+  width: 4.4rem;
+  height: 1rem;
+  box-sizing: border-box;
+  padding: .2rem;
+  float: left;
+  background: green;
+  margin-left: .2rem;
+  margin-top: .2rem;
+}*/

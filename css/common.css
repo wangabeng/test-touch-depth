@@ -1,0 +1,97 @@
+﻿
+/* 公共头部 */
+.m-head {
+    overflow: hidden;
+    width: 100%;
+    background: -webkit-linear-gradient(left, #f9bcdd , #fe93af);
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+}
+.m-head .head-more {
+    float: left;
+    height: .87rem;
+    line-height: .87rem;
+    text-align: center;
+    margin-left: .2rem;
+}
+.m-head .head-more i {
+  font-size: .3rem;
+  height: .87rem;
+  line-height: .87rem;
+  color: #fff;
+}
+.m-head .input-wrapper {
+  float: left;
+  position: relative;
+  margin-top: .15rem;
+  margin-left: .4rem;
+}
+.m-head .input-wrapper input {
+  color: #fff;
+  background-color: transparent;
+  border: 1px solid #fff;
+  width: 4.32rem;
+  box-sizing: border-box;
+  height: .58rem;
+  border-radius: .58rem;
+  padding-left: .56rem;
+  padding-right: .3rem;
+  font-size: .25rem;
+}
+.m-head .input-wrapper input::-webkit-input-placeholder{
+  color:#fff;
+}
+.m-head .input-wrapper input::-moz-input-placeholder{
+  color:#fff;
+}
+.m-head .input-wrapper input::-ms-input-placeholder{
+  color:#fff;
+}
+.m-head .input-wrapper i {
+  width: .6rem;
+  height: .6rem;
+  color: #fff;
+  position: absolute;
+  left: 0.2rem;
+  top: 0.12rem;
+  font-size: .3rem;
+}
+.m-head .head-index {
+    float: right;
+    color: #fff;
+    margin-top: .124rem;
+    margin-right: .2rem;
+}
+.m-head .head-index img {
+  width: .645rem;
+  height: .645rem;
+}
+
+/*公共底部*/
+.m-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+}
+.m-footer ul {
+  overflow: hidden;
+  background-color: #fff;
+}
+.m-footer ul li {
+  float: left;
+  text-align: center;
+  width: 1.6rem;
+  padding: .18rem 0;
+  box-sizing: border-box;
+  height: 1.2rem;
+}
+.m-footer ul li img {
+  width: .5rem;
+  height: .5rem;
+}
+.m-footer ul li p {
+  font-size: .25rem;
+}

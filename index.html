@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
+    <title>首页</title>
+    <link href="./css/awesome.css" rel="stylesheet">
+    <link href="./css/base.css" rel="stylesheet">
+    <link href="./css/common.css" rel="stylesheet">
+    <link href="./css/iSlider.css" rel="stylesheet">
+    <link href="./css/index.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="./js/jquery1.10.2.js"></script>
+    <script type="text/javascript" src="./js/fontSize.js"></script>
+    <script type="text/javascript" src="./js/common.js"></script>
+    <script type="text/javascript" src="./js/iSlider.js"></script>
+    <script type="text/javascript" src="./js/iSlider.animate.js"></script>
+    <script>
+        $(function () {
+            // 主页新闻标题自动滚动动画
+            $('.news-list-content').slideUp();
+        });
+    </script>
+</head>
+<body>
+    <!--公共头部-->
+    <div class="m-head">
+        <a href="javascript:;" onclick="javascript:window.history.back();return false;" class="head-more">
+            <i class="fa fa-bars"></i>
+        </a>
+        <div class="input-wrapper">
+            <input type="text" placeholder="请输入商品名称">
+            <i class="fa fa-search"></i>
+        </div>
+        <a href="javascript:;" onclick="javascript:window.history.back();return false;" class="head-index">
+            <img src="./imgs/logo.png" alt="logo"><!-- logo -->
+        </a>
+        
+    </div>
+    <!--index主体内容-->
+    <div class="m-index">
+        <!-- 广告图 -->
+        <div class="adv-pic">
+            <a href=""><img src="./imgs/index-bag.png" alt=""></a>
+        </div>
+        <!-- 促销列表 -->
+        <div class="product-class">
+            <ul>
+                <li>
+                    <a href="#">
+                        <p>SALE</p>
+                        <p>促销品</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <p>SALE</p>
+                        <p>促销品</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <p>SALE</p>
+                        <p>促销品</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <p>SALE</p>
+                        <p>促销品</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <p>SALE</p>
+                        <p>促销品</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <p>SALE</p>
+                        <p>促销品</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <p>SALE</p>
+                        <p>促销品</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <p>SALE</p>
+                        <p>促销品</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- 新闻标题轮播 -->
+        <div class="news-broadcast">
+            <div class='news-title'>
+                <h3>NEWS</h3>
+            </div>
+            <div class="news-list-wrapper">
+                <ul class='news-list-content'>
+                    <li class='top-news'>
+                        <a href="#">
+                            <i class='fa fa-commenting left-msg-icon'></i>
+                            <span class='news-dot'>：</span>
+                            <span class='news-title-list'>2018年10月20日快递放假1 </span>
+                            <i class='fa fa-caret-right right-detail-icon'></i>
+                        </a>
+                    </li>
+                    <li class='top-news'>
+                        <a href="#">
+                            <i class='fa fa-commenting left-msg-icon'></i>
+                            <span class='news-dot'>：</span>
+                            <span class='news-title-list'>2018年11月20日快递放假2 </span>
+                            <i class='fa fa-caret-right right-detail-icon'></i>
+                        </a>
+                    </li>
+                    <li class='top-news'>
+                        <a href="#">
+                            <i class='fa fa-commenting left-msg-icon'></i>
+                            <span class='news-dot'>：</span>
+                            <span class='news-title-list'>2018年10月20日快递放假3 </span>
+                            <i class='fa fa-caret-right right-detail-icon'></i>
+                        </a>
+                    </li>
+                    <li class='top-news'>
+                        <a href="#">
+                            <i class='fa fa-commenting left-msg-icon'></i>
+                            <span class='news-dot'>：</span>
+                            <span class='news-title-list'>2018年10月20日快递放假4 </span>
+                            <i class='fa fa-caret-right right-detail-icon'></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class='index-nav-list'>
+            <ul>
+                <li class='agency-application'>
+                    <a href="#">
+                        <img src='./imgs/application.png'>
+                        <p>代理申请</p>
+                        <p>AGENCY APPLICATION</p>
+                    </a>
+                </li>
+                <li class='order-center'>
+                    <a href="#">
+                        <img src='./imgs/order.png'>
+                        <p>订单中心</p>
+                        <p>ORDER CENTER</p>
+                    </a>
+                </li>
+                <li class='agency-query'>
+                    <a href="#">
+                        <img src='./imgs/query.png'>
+                        <p>代理查询</p>
+                        <p>AGENCY QUERY</p>
+                    </a>
+                </li>
+                <li class='product-order'>
+                    <a href="#">
+                        <img src='./imgs/product.png'>
+                        <p>产品中心</p>
+                        <p>PRODUCT CENTER</p>
+                    </a>
+                </li>
+                <li class='material-center'>
+                    <a href="#">
+                        <img src='./imgs/material.png'>
+                        <p>素材中心</p>
+                        <p>MATERIAL CENTER</p>
+                    </a>
+                </li>
+                <li class='activity-center'>
+                    <a href="#">
+                        <img src='./imgs/activity.png'>
+                        <p>活动中心</p>
+                        <p>ACTIVITY CENTER</p>
+                    </a>
+                </li>
+                <li class='personal-center'>
+                    <a href="#">
+                        <img src='./imgs/personal.png'>
+                        <p>个人中心</p>
+                        <p>PERSONAL CENTER</p>
+                    </a>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+
+    <!--公共底部-->
+    <div class="m-footer">
+        <ul>
+            <li>
+                <a href="">
+                    <img src="./imgs/bottom-aboutus.png" alt="关于我们">
+                    <p>关于我们</p>                
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="./imgs/bottom-promte.png" alt="推广中心">
+                    <p>推广中心</p>                
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="./imgs/bottom-order-center.png" alt="订单中心">
+                    <p>订单中心</p>              
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="./imgs/bottom-member.png" alt="会员中心">
+                    <p>会员中心</p>                
+                </a>
+            </li>
+        </ul>
+        <div>
+    </div>
+
+    <!--test-->
+<!--     <div class='test'>
+        <div class="test1"></div>
+        <div class="test2"></div>
+        <div class="test3"></div>
+    </div> -->
+
+</body>
+</html>
