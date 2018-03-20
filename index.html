@@ -23,23 +23,26 @@
             // 整个ul向上移动 移动到最高位置的时候 瞬间让ul下移至原始位置 即可 然后继续向上移动
             // 2个参数 一个是元素class名 一个是元素高度0.3rem 单位是rem
             var moveElement = $('.news-list-content'); // ul元素
+            // 首先复制一份ul的追加到ul内
+            var cloneUlcontent = moveElement[0].innerHTML;
+            moveElement.append(cloneUlcontent);
             var allLength = moveElement.find('li').length;
             var eachHeight = remChangePx(0.3);
             // console.log('eachHeight', -1 * eachHeight * 2);
             var curTop;
             // 每800ms向上移动2格高度
-            // 首先复制一份ul的追加到ul内
-            var cloneUlcontent = moveElement[0].innerHTML;
-            moveElement.append(cloneUlcontent);
+
             clearInterval(moveTimer);
             var moveTimer = setInterval(function () {
                 // 获取当前的top值
                 curTop = parseInt(moveElement.css('top'));
                 if (curTop == parseInt(- eachHeight * (allLength - 2))) {
-                    // moveElement.css('top', 0);
-                    alert('ok');
+                    console.log('curTop', curTop);
+                    var pullAtOnce = parseInt(- eachHeight * (allLength / 2 - 2));
+                    moveElement.css('top', pullAtOnce);
+                    curTop = parseInt(moveElement.css('top'));
                 }
-                console.log(curTop, eachHeight * 2 * (allLength - 2));
+                console.log(curTop, - eachHeight * (allLength - 2));
                 moveElement.animate({'top': curTop - eachHeight * 2}, 600);
             }, 1200);
             
