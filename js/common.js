@@ -96,6 +96,14 @@ function resetCode() {
     }, 1000);
 }
 
+// 王封装
+// 实时获取1rem单位的px值 rem转像素
+function remChangePx (remSize) {
+    var deviceWidth = document.body && document.body.clientWidth || document.getElementsByTagName("html")[0].offsetWidth;
+    return remSize * (deviceWidth * 200 / 1280);
+}
+
+
 (function ($) {
     $.fn.extend({
         "slideUp": function (value) {

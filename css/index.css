@@ -85,7 +85,11 @@
   height: .6rem;
   overflow: hidden;
 }
-
+.news-list-wrapper ul {
+  position: relative;
+  left: 0;
+  top: 0;
+}
 .news-broadcast ul li {
   width: 5.36rem;
   height: .3rem;
