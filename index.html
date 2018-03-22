@@ -17,8 +17,7 @@
     <script type="text/javascript" src="./js/iSlider.animate.js"></script>
     <script>
         $(function () {
-            // 主页新闻标题自动滚动动画
-            // 整个ul向上移动 移动到最高位置的时候 瞬间让ul下移至原始位置 即可 然后继续向上移动
+            // 主页新闻标题自动滚动动画 新闻条目总数只支持偶数个
             // 2个参数 一个是元素class名 一个是元素高度0.3rem 单位是rem
             var moveElement = $('.news-list-content'); // ul元素
             // 首先复制一份ul的追加到ul内
@@ -33,6 +32,7 @@
             clearInterval(moveTimer);
             var moveTimer = setInterval(intervalFn, 1600);
 
+            // 缩放时关闭滚动动画 然后重新开启动画
             window.addEventListener('resize', function () {
                 clearInterval(moveTimer);
                 moveTimer = setInterval(intervalFn, 1600);

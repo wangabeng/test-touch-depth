@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
+    <title>首页</title>
+    <link href="./css/awesome.css" rel="stylesheet">
+    <link href="./css/base.css" rel="stylesheet">
+    <link href="./css/iSlider.css" rel="stylesheet">
+    <link href="./css/index.css" rel="stylesheet">
+
+    <script type="text/javascript" src="./js/jquery1.10.2.js"></script>
+    <script type="text/javascript" src="./js/common.js"></script>
+    <script type="text/javascript" src="./js/fontSize.js"></script>
+    <script type="text/javascript" src="./js/iSlider.js"></script>
+    <script type="text/javascript" src="./js/iSlider.animate.js"></script>
+    <style>
+
+        .wrapper {
+            position: relative;
+            height: 8.4rem; /* 在这里设置图片比例 */
+            width: 6.4rem;
+        }
+
+        .fork {
+            position: absolute; /* 必须要绝对定位 */
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            overflow: hidden;
+        }
+
+        .fork img {
+            display: block;
+            height: 2rem;
+            width: 2rem;
+        }
+
+    </style>
+    <script>
+        $(function () {
+            // curIndex当前图片的index值
+            var curIndex = 0;
+
+            var list = [
+                {content: "./imgs/1.jpg"},
+                {content: "./imgs/2.jpg"},
+                {content: "./imgs/3.jpg"},
+                {content: "./imgs/4.jpg"}
+            ];
+
+            var list2 = [
+                {content: "./imgs/5.jpg"},
+                {content: "./imgs/6.jpg"},
+                {content: "./imgs/7.jpg"},
+                {content: "./imgs/8.jpg"}
+            ];
+
+            //如果没有返回数据，不要继续往下加载插件
+            if (!list) {
+                return;
+            }
+
+            var S1 = new iSlider($('#s')[0], list, {
+                initIndex: curIndex,
+                isLooping: 0,
+                isOverspread: 1,
+                isAutoplay: 0,
+                animateTime: 800,
+                animateType: 'depth',
+                fixPage:false, // 场景内屏蔽原生事件的触发，如：滚动、拖拽、缩放等 false 不阻止原生事件    就OK了
+                // http://blog.csdn.net/big1989wmf/article/details/70144790
+                onSlideChanged: callBack,
+                onRenderComplete: callBack,
+                reset: callBack2
+            });
+
+            function callBack (index) {
+                curIndex = index;
+                console.log(index);
+            }
+
+            function callBack2 () {
+                console.log('rest');
+            }
+
+            $('#s').click(function () {
+                console.log(curIndex);
+                $('.wrapper').css({'height': '6.4rem'});
+                $("html, body").animate({ 'scrollTop': 200}, 500);
+                // 点击以后动态生成第二个slider实例 把当前的index值传入实例二的initIndex参数
+            });
+
+        });
+
+    </script>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="fork" id="s"></div>
+
+</div>
+
+<div class="wrapper">
+    <div class="fork" id="s2"></div>
+
+</div>
+
+
+
+</body>
+</html>

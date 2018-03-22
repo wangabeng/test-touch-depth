@@ -10,20 +10,27 @@
     <link href="./css/index.css" rel="stylesheet">
 
     <script type="text/javascript" src="./js/jquery1.10.2.js"></script>
+    <script type="text/javascript" src="./js/common.js"></script>
     <script type="text/javascript" src="./js/fontSize.js"></script>
     <script type="text/javascript" src="./js/iSlider.js"></script>
     <script type="text/javascript" src="./js/iSlider.animate.js"></script>
     <style>
-        body {
-            height: 1200px;
-        }
-        .wrapper {
+
+        .slide-wrapper {
             position: relative;
-            height: 8.4rem; /*在这里设置图片比例*/
+            height: 8.4rem; /* 在这里设置图片比例 */
             width: 6.4rem;
         }
 
-        .fork {
+        .slide-wrapper-copy {
+            position: relative;
+            height: 6.4rem; /* 在这里设置图片比例 */
+            width: 6.4rem;
+            left: 0;
+            -top: -8.4rem;
+        }
+
+        .slide-content {
             position: absolute; /* 必须要绝对定位 */
             left: 0;
             top: 0;
@@ -32,121 +39,76 @@
             overflow: hidden;
         }
 
-        .fork img {
-            display: block;
-            height: 2rem;
-            width: 2rem;
-        }
-
     </style>
+    <script>
+        $(function () {
+            var picList = [
+                {content: "./imgs/1.jpg"},
+                {content: "./imgs/2.jpg"},
+                {content: "./imgs/3.jpg"},
+                {content: "./imgs/4.jpg"}
+            ];
+            var picListCopy = [
+                {content: "./imgs/1-small.png"},
+                {content: "./imgs/2-small.png"},
+                {content: "./imgs/3-small.png"},
+                {content: "./imgs/4-small.png"}
+            ];
+
+            var curState = {};
+            curState.curIndex = 0;
+            new PicSlider(picList, $('#slide-content'), curState);
+            // new PicSlider(picListCopy, $('#slide-content-copy'), curState);
+
+
+            // 工厂方法 创建slider
+            function PicSlider (picList, slideObj, curState) {
+                // curIndex当前图片的index值
+
+                //如果没有返回数据，不要继续往下加载插件
+                if (!picList) {
+                    return;
+                }
+
+                new iSlider(slideObj[0], picList, {
+                    initIndex: curState.curIndex,
+                    isLooping: 0,
+                    isOverspread: 1,
+                    isAutoplay: 0,
+                    animateTime: 800,
+                    animateType: 'depth',
+                    fixPage:false, // 场景内屏蔽原生事件的触发，如：滚动、拖拽、缩放等 false 不阻止原生事件    就OK了
+                    // http://blog.csdn.net/big1989wmf/article/details/70144790
+                    onSlideChanged: callBack,
+                    onRenderComplete: callBack
+                });
+
+                function callBack (index) {
+                    curState.curIndex = index;
+                    console.log(curState.curIndex);
+                }
+            }
+
+            $('#slide-content').click(function () {
+                console.log(curState.curIndex);
+                // new PicSlider(picList, $('#slide-content'), curState);
+                new PicSlider(picListCopy, $('#slide-content-copy'), curState);
+                // $(this).css({'height': '6.4rem', 'visibility': 'hidden'});
+                $('.slide-wrapper-copy').css({'visibility': 'show'});
+                $("html, body").animate({'scrollTop': 100}, 500);
+                // 点击以后动态生成第二个slider实例 把当前的index值传入实例二的initIndex参数
+            });
+
+        });
+
+    </script>
 </head>
 <body>
-    <br>1
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>2
-    <br>
-    <br>
-    <br>4
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>8
-<div class="wrapper">
-    <div class="fork" id="s"></div>
-
-</div>
-
-<div class="wrapper">
-    <div class="fork" id="s2"></div>
-
-</div>
-
-    <br>1
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>2
-    <br>
-    <br>
-    <br>4
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>8
-
-
-
-<script id="show-code">
-    $(function () {
-        // curIndex当前图片的index值
-        var curIndex = 0;
-
-        var list = [
-            {content: "./imgs/1.jpg"},
-            {content: "./imgs/2.jpg"},
-            {content: "./imgs/3.jpg"},
-            {content: "./imgs/4.jpg"}
-        ];
-
-        var list2 = [
-            {content: "./imgs/5.jpg"},
-            {content: "./imgs/6.jpg"},
-            {content: "./imgs/7.jpg"},
-            {content: "./imgs/8.jpg"}
-        ];
-
-        //如果没有返回数据，不要继续往下加载插件
-        if (!list) {
-            return;
-        }
-
-        var S1 = new iSlider($('#s')[0], list, {
-            initIndex: 2,
-            isLooping: 0,
-            isOverspread: 1,
-            isAutoplay: 0,
-            animateTime: 800,
-            animateType: 'depth',
-            fixPage:false, // 场景内屏蔽原生事件的触发，如：滚动、拖拽、缩放等 false 不阻止原生事件    就OK了
-            // http://blog.csdn.net/big1989wmf/article/details/70144790
-            onSlideChanged: callBack,
-            onRenderComplete: callBack,
-            reset: callBack2
-        });
-
-        function callBack (index) {
-            curIndex = index;
-            console.log(index);
-        }
-
-        function callBack2 () {
-            console.log('rest');
-        }
-
-        $('#s').click(function () {
-            console.log(curIndex);
-            $('.wrapper').css({'height': '6.4rem'});
-            $("html, body").animate({ 'scrollTop': 200}, 500);
-            // 点击以后动态生成第二个slider实例 把当前的index值传入实例二的initIndex参数
-        });
-
-    });
-
-</script>
+    <div class="slide-wrapper">
+        <div class="slide-content" id="slide-content"></div>
+    </div>
+    <div class="slide-wrapper-copy">
+        <div class="slide-content slide-content-copy" id="slide-content-copy"></div>
+    </div>
 </body>
 </html>
