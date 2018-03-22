@@ -20,6 +20,8 @@
             position: relative;
             height: 8.4rem; /* 在这里设置图片比例 */
             width: 6.4rem;
+            left: 0;
+            top: 0;
         }
 
         .slide-wrapper-copy {
@@ -27,7 +29,7 @@
             height: 6.4rem; /* 在这里设置图片比例 */
             width: 6.4rem;
             left: 0;
-            -top: -8.4rem;
+            top: 0;
         }
 
         .slide-content {
@@ -93,9 +95,10 @@
                 console.log(curState.curIndex);
                 // new PicSlider(picList, $('#slide-content'), curState);
                 new PicSlider(picListCopy, $('#slide-content-copy'), curState);
-                // $(this).css({'height': '6.4rem', 'visibility': 'hidden'});
-                $('.slide-wrapper-copy').css({'visibility': 'show'});
-                $("html, body").animate({'scrollTop': 100}, 500);
+                // $(this).css({'height': '6.4rem', 'display': 'none'});
+                $(this).hide();
+                $('.slide-wrapper-copy').animate({'top': '-8.4rem'}, 1000);;
+                // $("html, body").animate({'scrollTop': 100}, 1000);
                 // 点击以后动态生成第二个slider实例 把当前的index值传入实例二的initIndex参数
             });
 
@@ -104,11 +107,14 @@
     </script>
 </head>
 <body>
-    <div class="slide-wrapper">
-        <div class="slide-content" id="slide-content"></div>
+    <div class='test'>
+        <div class="slide-wrapper">
+            <div class="slide-content" id="slide-content"></div>
+        </div>
+        <div class="slide-wrapper-copy">
+            <div class="slide-content slide-content-copy" id="slide-content-copy"></div>
+        </div>
     </div>
-    <div class="slide-wrapper-copy">
-        <div class="slide-content slide-content-copy" id="slide-content-copy"></div>
-    </div>
+
 </body>
 </html>
