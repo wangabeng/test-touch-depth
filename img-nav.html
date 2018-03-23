@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
+    <title>图片导航</title>
+    <link href="./css/awesome.css" rel="stylesheet">
+    <link href="./css/base.css" rel="stylesheet">
+    <link href="./css/iSlider.css" rel="stylesheet">
+    <link href="./css/index.css" rel="stylesheet">
+
+    <script type="text/javascript" src="./js/jquery1.10.2.js"></script>
+    <script type="text/javascript" src="./js/fontSize.js"></script>
+    <script type="text/javascript" src="./js/iSlider.js"></script>
+    <script type="text/javascript" src="./js/iSlider.animate.js"></script>
+    <style>
+        .slider-wrapper {
+            position: relative;
+            width: 6.4rem;
+            height: 8rem;
+            border: 1px solid red;
+            box-sizing: border-box;
+            left: 0;
+            top: 0;
+        }
+        .slide-content {
+            position: absolute; /* 必须要绝对定位 */
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .slider-maincontent {
+            width: 6.4rem;
+            height: 6.4rem;
+            -background: green;
+            -display: none; /* 这里如果用block最后图片会显示不完全 */
+            position: relative;
+            left: 0;
+            bottom: 6.4rem;
+            opacity: 0;
+
+        }
+        .slider-wrapper2 {
+            width: 6.4rem;
+            height: 6.4rem;
+            position: relative;
+            left: 0;
+            border: 1px solid green;
+            box-sizing: border-box;
+        }
+        .slide-content2 {
+            position: absolute; /* 必须要绝对定位 */
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            overflow: hidden;
+        }
+
+        .item-list {
+/*            position: absolute;
+            left: 0;
+            top: 1rem;
+            width: 6.4rem;
+            height: 1rem;
+            background: gray;*/
+        }
+    </style>
+</head>
+<body>
+    <!-- 首屏可滑动图片导航 -->
+    <div class='slider-wrapper'>
+        <div class="slide-content" id="slide-content"></div>
+    </div>
+    <!-- 第二屏可滑动图片导航 -->
+    <div class='slider-maincontent'>
+        <div class='slider-wrapper2'>
+            <div class="slide-content2" id="slide-content2"></div>
+        </div>
+    </div>
+    <!-- 文字导航分类 -->
+    <div class='item-list'></div>
+<script id="show-code">
+    $(function () {
+
+        var picList = [
+            {content: "./imgs/1.jpg"},
+            {content: "./imgs/2.jpg"},
+            {content: "./imgs/3.jpg"},
+            {content: "./imgs/4.jpg"}
+        ];
+        var picList2 = [
+            {content: "./imgs/1-small.png"},
+            {content: "./imgs/2-small.png"},
+            {content: "./imgs/3-small.png"},
+            {content: "./imgs/4-small.png"}
+        ];
+
+        var curState = {};
+        curState.curIndex = 0;
+        new PicSlider(picList, $('#slide-content'), curState);
+
+        // 工厂方法 创建slider
+        function PicSlider (picList, slideObj, curState) {
+            // curIndex当前图片的index值
+
+            //如果没有返回数据，不要继续往下加载插件
+            if (!picList) {
+                return;
+            }
+
+            new iSlider(slideObj[0], picList, {
+                initIndex: curState.curIndex,
+                isLooping: 0,
+                isOverspread: 1,
+                isAutoplay: 0,
+                animateTime: 800,
+                animateType: 'depth',
+                fixPage:false, // 场景内屏蔽原生事件的触发，如：滚动、拖拽、缩放等 false 不阻止原生事件    就OK了
+                // http://blog.csdn.net/big1989wmf/article/details/70144790
+                onSlideChanged: callBack,
+                onRenderComplete: callBack
+            });
+
+            function callBack (index) {
+                curState.curIndex = index;
+                console.log(curState.curIndex);
+            }
+        }
+
+      // 点击上滑  
+      $('.slider-wrapper').on('click', function (event) {
+         event.stopPropagation(); // 阻止冒泡到第二屏
+        // $(this).css({'visibility': 'hidden'});
+        $(this).animate({'opacity': '0'}, 10, function () {
+            new PicSlider(picList2, $('#slide-content2'), curState);
+            // $('.slide-content2').css({'z-index': '2'});
+            $('.slider-maincontent').css({'opacity': '1'}).animate({'bottom': '8rem'}, 1000);            
+        });
+
+      });
+
+
+      $('.slider-wrapper2').on('click', function (event) {
+        event.stopPropagation(); // 阻止冒泡到首屏
+        console.log(curState.curIndex);
+      });
+    });
+</script>
+</body>
+</html>
